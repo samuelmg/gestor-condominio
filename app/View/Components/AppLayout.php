@@ -6,6 +6,13 @@ use Illuminate\View\Component;
 
 class AppLayout extends Component
 {
+    public $header;
+
+    public function __construct($header)
+    {
+        $this->header = $header;
+    }
+
     /**
      * Get the view / contents that represents the component.
      *
