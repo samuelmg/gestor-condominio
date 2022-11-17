@@ -1,48 +1,5 @@
 <!DOCTYPE html>
-<html :class="{ 'theme-dark': dark }" x-data="{
-  {{-- dark: getThemeFromLocalStorage(), --}}
-  dark: false,
-  toggleTheme() {
-    this.dark = !this.dark
-    {{-- setThemeToLocalStorage(this.dark) --}}
-  },
-  isSideMenuOpen: false,
-  toggleSideMenu() {
-    this.isSideMenuOpen = !this.isSideMenuOpen
-  },
-  closeSideMenu() {
-    this.isSideMenuOpen = false
-  },
-  isNotificationsMenuOpen: false,
-  toggleNotificationsMenu() {
-    this.isNotificationsMenuOpen = !this.isNotificationsMenuOpen
-  },
-  closeNotificationsMenu() {
-    this.isNotificationsMenuOpen = false
-  },
-  isProfileMenuOpen: false,
-  toggleProfileMenu() {
-    this.isProfileMenuOpen = !this.isProfileMenuOpen
-  },
-  closeProfileMenu() {
-    this.isProfileMenuOpen = false
-  },
-  isPagesMenuOpen: false,
-  togglePagesMenu() {
-    this.isPagesMenuOpen = !this.isPagesMenuOpen
-  },
-  // Modal
-  isModalOpen: false,
-  trapCleanup: null,
-  openModal() {
-    this.isModalOpen = true
-    this.trapCleanup = focusTrap(document.querySelector('#modal'))
-  },
-  closeModal() {
-    this.isModalOpen = false
-    this.trapCleanup()
-  },
-}" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html :class="{ 'theme-dark': dark }" x-data="initAlpine" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -56,6 +13,55 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/windmill/css/tailwind.output.css', 'resources/windmill/js/focus-trap.js'])
     
+    <script>
+      document.addEventListener('alpine:init', () => {
+          Alpine.data('initAlpine', () => ({
+            {{-- dark: getThemeFromLocalStorage(), --}}
+            dark: false,
+            toggleTheme() {
+              this.dark = !this.dark
+              {{-- setThemeToLocalStorage(this.dark) --}}
+            },
+            isSideMenuOpen: false,
+            toggleSideMenu() {
+              this.isSideMenuOpen = !this.isSideMenuOpen
+            },
+            closeSideMenu() {
+              this.isSideMenuOpen = false
+            },
+            isNotificationsMenuOpen: false,
+            toggleNotificationsMenu() {
+              this.isNotificationsMenuOpen = !this.isNotificationsMenuOpen
+            },
+            closeNotificationsMenu() {
+              this.isNotificationsMenuOpen = false
+            },
+            isProfileMenuOpen: false,
+            toggleProfileMenu() {
+              this.isProfileMenuOpen = !this.isProfileMenuOpen
+            },
+            closeProfileMenu() {
+              this.isProfileMenuOpen = false
+            },
+            isPagesMenuOpen: false,
+            togglePagesMenu() {
+              this.isPagesMenuOpen = !this.isPagesMenuOpen
+            },
+            // Modal
+            isModalOpen: false,
+            trapCleanup: null,
+            openModal() {
+              this.isModalOpen = true
+              this.trapCleanup = focusTrap(document.querySelector('#modal'))
+            },
+            closeModal() {
+              this.isModalOpen = false
+              this.trapCleanup()
+            },
+          }))
+      })
+  </script>
+
     {{-- <script src="../assets/js/init-alpine.js"></script> --}}
 
     <!-- Styles -->
