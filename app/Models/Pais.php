@@ -9,6 +9,7 @@ class Pais extends Model
 {
     use HasFactory;
     protected $table = 'paises';
+    public $timestamps = false;
 
     public function estados()
     {
