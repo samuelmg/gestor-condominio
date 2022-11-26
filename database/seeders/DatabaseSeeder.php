@@ -26,5 +26,10 @@ class DatabaseSeeder extends Seeder
             EstadoSeeder::class,
             MunicipioSeeder::class,
         ]);
+
+        //@todo Detectar si app está en desarrollo
+        $this->call([
+            CondominioSeeder::class,
+        ]);
     }
 }
