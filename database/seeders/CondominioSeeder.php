@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Condominio;
+use App\Models\Vivienda;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,6 +16,9 @@ class CondominioSeeder extends Seeder
      */
     public function run()
     {
-        Condominio::factory()->count(10)->create();
+        Condominio::factory()
+            ->has(Vivienda::factory()->count(60))
+            ->count(10)
+            ->create();
     }
 }

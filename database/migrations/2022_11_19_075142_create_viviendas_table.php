@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('viviendas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('condominio_id')->constrained();
+            $table->string('numero', 5);
+            $table->string('estatus', 20);
+            $table->string('notas');
             $table->timestamps();
         });
     }
