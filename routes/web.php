@@ -31,4 +31,4 @@ Route::middleware([
 
 Route::get('inicio', [SitioController::class, 'landing']);
 
-Route::resource('vivienda', ViviendaController::class);
+Route::resource('vivienda', ViviendaController::class)->middleware('auth');
