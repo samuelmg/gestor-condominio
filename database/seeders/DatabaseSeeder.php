@@ -20,5 +20,16 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        $this->call([
+            PaisSeeder::class,
+            EstadoSeeder::class,
+            MunicipioSeeder::class,
+        ]);
+
+        //@todo Detectar si app está en desarrollo
+        $this->call([
+            CondominioSeeder::class,
+        ]);
     }
 }
