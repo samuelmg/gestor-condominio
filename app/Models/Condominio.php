@@ -34,6 +34,11 @@ class Condominio extends Model
         return $this->belongsTo(Municipio::class);
     }
 
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
     public function viviendas()
     {
         return $this->hasMany(Vivienda::class);

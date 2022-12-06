@@ -8,7 +8,7 @@ class AppLayout extends Component
 {
     public $header;
 
-    public function __construct($header)
+    public function __construct($header = null)
     {
         $this->header = $header;
     }
