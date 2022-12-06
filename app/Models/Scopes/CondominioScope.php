@@ -18,7 +18,6 @@ class CondominioScope implements Scope
      */
     public function apply(Builder $builder, Model $model)
     {
-        $condominio_id = Auth::user()->condominios()->value('id');
-        $builder->where('condominio_id', $condominio_id);
+        $builder->where('condominio_id', session('condominio_id'));
     }
 }
