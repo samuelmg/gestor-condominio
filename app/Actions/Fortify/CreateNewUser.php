@@ -24,9 +24,10 @@ class CreateNewUser implements CreatesNewUsers
     {
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
+            'tel_celular' => ['required', 'integer', 'exists:personas'],
         ])->validate();
 
         return DB::transaction(function () use ($input) {
@@ -34,6 +35,7 @@ class CreateNewUser implements CreatesNewUsers
                 'name' => $input['name'],
                 'email' => $input['email'],
                 'password' => Hash::make($input['password']),
+                'tel_celular' => $input['tel_celular'],
             ]), function (User $user) {
                 $this->createTeam($user);
             });
