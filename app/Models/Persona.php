@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Persona extends Model
 {
     use HasFactory;
+    protected $fillable = ['nombre', 'tel_celular', 'tel_fijo'];
 
     protected static function booted()
     {

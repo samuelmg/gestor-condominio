@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('personas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('condominio_id')->constrained();
+            $table->string('nombre');
             $table->string('tel_celular', 14)->unique();
             $table->string('tel_fijo', 14)->nullable();
             $table->timestamps();

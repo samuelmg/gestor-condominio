@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PersonaController;
 use App\Http\Controllers\SitioController;
 use App\Http\Controllers\ViviendaController;
 use Illuminate\Support\Facades\Route;
@@ -32,3 +33,4 @@ Route::middleware([
 Route::get('inicio', [SitioController::class, 'landing']);
 
 Route::resource('vivienda', ViviendaController::class)->middleware('auth');
+Route::resource('vecinos', PersonaController::class)->middleware('auth')->parameters(['vecinos' => 'persona']);
