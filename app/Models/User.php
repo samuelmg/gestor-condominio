@@ -26,7 +26,7 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'cel_number',
     ];
 
     /**
@@ -62,5 +62,10 @@ class User extends Authenticatable
     public function condominios()
     {
         return $this->belongsToMany(Condominio::class);
+    }
+
+    public function viviendas()
+    {
+        return $this->belongsToMany(Vivienda::class);
     }
 }

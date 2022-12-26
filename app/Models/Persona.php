@@ -2,14 +2,14 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\CondominioScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Scopes\CondominioScope;
 
-class Vivienda extends Model
+class Persona extends Model
 {
     use HasFactory;
-    protected $fillable = ['numero', 'estatus', 'notas'];
+    protected $fillable = ['nombre', 'tel_celular', 'tel_fijo'];
 
     protected static function booted()
     {
@@ -21,13 +21,8 @@ class Vivienda extends Model
         return $this->belongsTo(Condominio::class);
     }
 
-    public function personas()
+    public function viviendas()
     {
-        return $this->belongsToMany(Persona::class)->withPivot('tipo');
-    }
-
-    public function users()
-    {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(Vivienda::class)->withPivot('tipo');
     }
 }

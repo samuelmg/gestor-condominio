@@ -43,4 +43,9 @@ class Condominio extends Model
     {
         return $this->hasMany(Vivienda::class);
     }
+
+    public function personas()
+    {
+        return $this->hasMany(Persona::class);
+    }
 }
