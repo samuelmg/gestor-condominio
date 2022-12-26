@@ -63,4 +63,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Condominio::class);
     }
+
+    public function viviendas()
+    {
+        return $this->belongsToMany(Vivienda::class);
+    }
 }

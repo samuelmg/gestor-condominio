@@ -25,4 +25,9 @@ class Vivienda extends Model
     {
         return $this->belongsToMany(Persona::class)->withPivot('tipo');
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }
