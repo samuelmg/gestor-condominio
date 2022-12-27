@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
         //@todo Detectar si app está en desarrollo
         $this->call([
             CondominioSeeder::class,
+            CuentaSeeder::class,
         ]);
     }
 }
