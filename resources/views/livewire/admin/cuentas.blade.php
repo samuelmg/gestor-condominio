@@ -1,3 +1,7 @@
+<div>
+<button @click="openModal" class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+    Agregar Cuenta
+</button>
 <div class="w-full overflow-hidden rounded-lg shadow-xs">
     <div class="w-full overflow-x-auto">
     <table class="w-full whitespace-no-wrap">
@@ -81,4 +85,39 @@
         </tbody>
     </table>
     </div>
+</div>
+<x-modal title="Crear Cuenta">
+    <form wire:submit.prevent="save" method="POST">
+        <x-form.input
+            wire:model.defer="cuenta"
+            label="Cuenta"
+            name="cuenta"
+            placeholder="Descripción de la Cuenta"
+            required
+            />
+        <x-form.input
+            wire:model.defer="clave"
+            label="Clave"
+            name="clave"
+            wire:model.lazy="clave"
+            placeholder="(Opcional)"
+            />
+        <x-form.checkbox
+            wire:model.defer="ingreso"
+            texto="Ingreso"
+            name="ingreso"
+            value="1"
+            />
+
+        <x-form.checkbox
+            wire:model.defer="egreso"
+            texto="Egreso"
+            name="egreso"
+            value="1"
+            />
+    </form>
+    <x-slot:footer>
+        <x-form.submit texto="Guardar" wire:click="save" />
+    </x-slot:footer>
+</x-modal>
 </div>
