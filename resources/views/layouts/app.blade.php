@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/windmill/css/tailwind.output.css', 'resources/windmill/js/focus-trap.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/windmill/css/tailwind.output.css'])
 
     <!-- Styles -->
     @livewireStyles
