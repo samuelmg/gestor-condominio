@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('cuentas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('condominio_id')->constrained()->onDelete('cascade');
-            $table->string('clave')->default('');
+            $table->string('clave', 50)->default('');
             $table->string('cuenta');
             $table->boolean('ingreso');
             $table->boolean('egreso');
