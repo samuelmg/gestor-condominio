@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Admin;
 use App\Models\Cuenta;
 use Livewire\Component;
 
-class Cuentas extends Component
+class CuentaIndex extends Component
 {
     public $cuentas;
 
@@ -29,7 +29,7 @@ class Cuentas extends Component
 
     public function render()
     {
-        return view('livewire.admin.cuentas')->layoutData(['header' => 'Administración de Cuentas']);
+        return view('livewire.admin.cuenta-index')->layoutData(['header' => 'Administración de Cuentas']);
     }
 
     public function save()
