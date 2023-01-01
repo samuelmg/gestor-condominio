@@ -3,7 +3,8 @@
 use App\Http\Controllers\PersonaController;
 use App\Http\Controllers\SitioController;
 use App\Http\Controllers\ViviendaController;
-use App\Http\Livewire\Admin\Cuentas;
+use App\Http\Livewire\Admin\CuentaIndex;
+use App\Http\Livewire\Admin\CuentaShow;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,4 +36,5 @@ Route::get('inicio', [SitioController::class, 'landing']);
 
 Route::resource('vivienda', ViviendaController::class)->middleware('auth');
 Route::resource('vecinos', PersonaController::class)->middleware('auth')->parameters(['vecinos' => 'persona']);
-Route::get('/admin/cuentas', Cuentas::class);
+Route::get('/admin/cuentas', CuentaIndex::class)->name('cuenta.index');
+Route::get('/admin/cuentas/{cuenta}', CuentaShow::class)->name('cuenta.show');

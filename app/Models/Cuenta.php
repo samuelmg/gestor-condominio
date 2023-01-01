@@ -20,4 +20,9 @@ class Cuenta extends Model
     {
         return $this->belongsTo(Condominio::class);
     }
+
+    public function conceptos()
+    {
+        return $this->hasMany(Concepto::class);
+    }
 }
