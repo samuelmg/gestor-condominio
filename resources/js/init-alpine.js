@@ -33,9 +33,9 @@ export default () => ({
   // Modal
   isModalOpen: false,
   trapCleanup: null,
-  openModal() {
+  openModal(modalId = 'modal') {
     this.isModalOpen = true
-    this.trapCleanup = this.focusTrap(document.querySelector('#modal'))
+    this.trapCleanup = this.focusTrap(document.querySelector('#' + modalId))
   },
   closeModal() {
     this.isModalOpen = false
