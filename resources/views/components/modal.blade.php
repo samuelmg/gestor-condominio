@@ -1,5 +1,6 @@
 @props([
-    'title' => null
+    'title' => null,
+    'modalId' => 'modal',
 ])
 <!-- Modal backdrop. This what you want to place close to the closing body tag -->
 <div
@@ -25,7 +26,7 @@
     @keydown.escape="closeModal"
     class="w-full px-6 py-4 overflow-hidden bg-white rounded-t-lg dark:bg-gray-800 sm:rounded-lg sm:m-4 sm:max-w-xl"
     role="dialog"
-    id="modal"
+    id="{{ $modalId }}"
     >
     <!-- Remove header if you don't want a close icon. Use modal body to place modal tile. -->
     <header class="flex justify-end">
