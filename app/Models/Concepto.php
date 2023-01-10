@@ -9,6 +9,7 @@ class Concepto extends Model
 {
     use HasFactory;
     public $timestamps = false;
+    protected $fillable = ['concepto', 'estimado'];
 
     public function cuenta()
     {

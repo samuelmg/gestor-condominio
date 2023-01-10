@@ -67,10 +67,14 @@
         </div>
 
     <div class="grid gap-6 mb-8 md:grid-cols-2">
-        <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
-            <h4 class="mb-4 font-semibold text-gray-600 dark:text-gray-300">
-                Conceptos
-            </h4>
+        <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">              
+            <div class="mb-4  sm:flex sm:items-center sm:justify-between">
+                <h4 class="font-semibold text-gray-600 dark:text-gray-300">
+                    Conceptos
+                </h4>
+                <livewire:admin.concepto-form :cuentaId="$cuenta->id" />
+            </div>
+
             <table class="w-full whitespace-no-wrap">
                 <thead>
                 <tr

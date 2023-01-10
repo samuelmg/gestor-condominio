@@ -10,6 +10,8 @@ class CuentaShow extends Component
     public $cuenta;
     public $conceptos;
 
+    protected $listeners = ['conceptoGuardado' => 'actualizarListadoConceptos'];
+
     public function mount(Cuenta $cuenta)
     {
         $this->cuenta = $cuenta;
@@ -19,5 +21,10 @@ class CuentaShow extends Component
     public function render()
     {
         return view('livewire.admin.cuenta-show')->layoutData(['header' => 'Detalle de Cuenta: ' . $this->cuenta->cuenta]);
+    }
+
+    public function actualizarListadoConceptos()
+    {
+        $this->conceptos = $this->cuenta->conceptos;
     }
 }
